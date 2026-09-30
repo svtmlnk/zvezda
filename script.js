@@ -134,6 +134,15 @@ if (!prefersReducedMotion && "IntersectionObserver" in window) {
   counters.forEach((el) => counterObserver.observe(el));
 }
 
+const v = document.querySelector('.hero__video');
+console.log(v)
+if (v) {
+  v.play().catch(() => {
+    const start = () => { v.play().catch(() => {}); };
+    document.addEventListener('touchstart', start, { once: true, passive: true });
+  });
+}
+
 AOS.init({
     // disable: 'phone',
     once: true
